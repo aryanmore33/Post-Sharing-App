@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(24, 24, 24);
+}
+h1{
+    color: rgb(164, 82, 247);
+    margin-top: 2rem;
+}
+.formdiv{
+    margin: 1rem;
+    gap: 2rem;
+    background-color: rgb(31, 31, 31);
+    border: 0.5px solid rgb(53, 53, 53);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1.9rem;
+}
+.form{
+    display: flex;
+    gap: 0.50rem;
+    flex-direction: column;
+}
+#Uname ,#email ,#age, #password, #name{
+    color: aliceblue;
+    height: 2.5rem;
+    width: 25rem;
+    background-color: rgb(31, 31, 31);
+    font-size: 17px;
+    border: 0.5px solid rgb(70, 70, 70);
+    border-radius: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+label{
+    color: rgb(180, 208, 233);
+    font-size: large;
+}
+button{
+    background-color: rgb(72, 164, 244);
+    height: 2.3rem;
+    width: 6.5rem;
+    margin-top: 0.5rem;
+    border: 0.5px;
+    border-radius: 5px;
+    margin-left: 9.5rem;
+}
+button:hover{
+    background-color:  rgb(98, 165, 224);;
+}
+h3, h4{
+    color: aliceblue;
+}
+h2{
+    color: darkgray;
+}
+.navbar{
+    width: 99.9%;
+    display: flex;
+    justify-content: end;
+    background-color: rgb(12, 1, 50);
+    border: 1px, solid rgb(0, 3, 39);
+}
+.logout,.edit, .home, .about, .profile{
+    margin: 1rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    border-radius: 3px;
+    text-decoration: none;
+}
+.logout{
+    background-color: red;
+    width: 6rem;
+    text-decoration: none;
+}
+.edit{
+    background-color: rgb(72, 164, 244);
+    text-decoration: none;
+}
+.postdiv{
+    gap: 2rem;
+    background-color: rgb(31, 31, 31);
+    padding: 0.5rem;   
+    margin-top: 0.5rem;
+}
+#post_wrt{
+    background-color: transparent;
+    border: none;
+    width: 37rem;
+    height: 4rem;
+    font-size: 1rem;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.5rem;
+}
+.postimg{
+    gap: 2rem;
+    background-color: rgb(31, 31, 31);
+    padding: 0.5rem;   
+    /* margin-top: 1rem; */
+    width: 20rem;
+}
+#previewContainer{
+    display: none;
+}
+#imagePreview {
+    width: 100%;
+    max-width: 20rem;
+    border-radius: 5px;
+}
+#imageInput{
+    color: gray;
+}
+.shrPost, .updtDp{
+    background-color: rgb(72, 164, 244);
+    height: 2.3rem;
+    width: 9rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0.5px;
+    border-radius: 5px;
+}
+.posts{
+    margin-top: 2rem;
+}
+.backdiv{
+    width: 97.9%;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+.back{
+    background-color: rgb(255, 0, 0);
+    color: black;
+    width: 2.2rem;
+    text-decoration: none;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.postContainer{
+    border: 1px, solid, gray;
+    color: rgb(178, 177, 177);
+    width: 33rem;
+    padding: 0.6rem;
+    background-color: rgb(33, 33, 33);
+    word-wrap: break-word; /* Ensures words break if needed */
+    overflow-wrap: break-word; /* Alternative for better compatibility */
+    white-space: normal;
+}
+h5{
+    font-size: 1rem;
+    color: rgb(83, 83, 249);
+}
+
+.btns{
+    display: flex;
+    gap: 1.5rem;
+}
+.like , .editPst, .deletePst{
+    text-decoration: none;
+}
+.like{
+    color: rgb(105, 105, 249);
+}
+.unlike{
+    color: red;
+    text-decoration: none;
+}
+.editPst{
+    color: rgb(111, 110, 110);
+}
+.deletePst{
+    color: rgb(255, 0, 0);
+}
+.postinfo{
+    display: flex;
+    margin-top: 0.5rem;
+}
+#time{
+    font-size: 0.9rem;
+    color: gray;
+    width: 80%;
+    display: flex;
+    justify-content: end;
+}
+small{
+    color: gray;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+/* .imageShared{
+
+} */
+
+.urPst{
+    background-color: rgb(0, 162, 255);
+    color: darkblue;
+    border: none;
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: fixed;
+    bottom: 1rem;
+    left: 3rem;
+}
+
+.dp{
+    height: 9rem;
+    width: 11rem;
+    overflow: hidden;
+    margin: 1rem;   
+}
+img{ 
+    margin-bottom: 1rem;   
+    width: 100%;
+    max-width: 10rem;
+    object-fit: cover;
+    border: 2px, solid, black;
+    border-radius: 1rem;
+}
+
+.changeDp{
+    margin-bottom: 1rem;
+}
+
+.homedp{
+    height: 5rem;
+    width: 100%;
+    max-width: 5rem;
+    border-radius: 50%;
+}
+.greetings{
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+.post{
+    margin-top: 1rem;
+}

@@ -1,0 +1,54 @@
+<!-- to edit the user info -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update users</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h1>Update User</h1>
+    <div class="formdiv">
+        <form class="form" action="/update/<%= user._id %>" method="post">
+            <h3>Your Profile Picture :</h3>
+            <!-- <img src="/images/uploads/<%= user.dp %>" alt=""> -->
+            <img src="data:image/png;base64,<%= user.dp.toString('base64') %>" alt="Profile Picture">
+            <a href="/chngDp" class="changeDp">Change Profile Picture</a>
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name" placeholder="name" value="<%= user.name %>">
+            <br>
+            <label for="age">Age :</label>
+            <input type="text" name="age" id="age" placeholder="age" value="<%= user.age %>">
+            <br>
+            <label for="email">Email Id :</label>
+            <input type="text" name="email" id="email" placeholder="email" value="<%= user.email %>">
+            <br>
+            <label for="username">Username :</label>
+            <input type="text" name="username" id="Uname" placeholder="username" value="<%= user.username %>">
+            <button id="update">Update User</button><br>
+        </form>
+    </div>
+    <a href="/read" id="view_u">View Users</a>
+
+
+    <script>
+        document.getElementById("imageInput").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("imagePreview").src = e.target.result;
+                    document.getElementById("previewContainer").style.display = "block";
+                    document.getElementById("imageInput").style.display = "none";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

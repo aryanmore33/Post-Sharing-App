@@ -1,0 +1,47 @@
+<!-- to edit the user info -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Profile Picture</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h1>Update Profile Picture</h1>
+    <div class="formdiv">
+        <form action="/chngDp" method="post" enctype="multipart/form-data">
+            <div class="postimg">
+                <div class="image-upload-container">
+                    <input type="file" name="dp" id="imageInput" accept="image/*">
+                    <div id="previewContainer">
+                        <img id="imagePreview" src="" alt="Image Preview">
+                    </div>
+                    <input class="updtDp" type="submit" value="Update Profile Pic">
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- <a href="/read" id="view_u">View Users</a> -->
+
+
+    <script>
+        document.getElementById("imageInput").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("imagePreview").src = e.target.result;
+                    document.getElementById("previewContainer").style.display = "block";
+                    document.getElementById("imageInput").style.display = "none";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>your profile</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/home" class="home">Home</a>
+        <a href="" class="about">About</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    <h1>Hello, <%= user.name %></h1><br>
+    <h2>See your profile</h2>
+    <div class="formdiv">
+        <h3>Your Profile Picture :</h3>
+        <div class="dp">
+            <img src="data:image/png;base64,<%= user.dp.toString('base64') %>" alt="Profile Picture">
+        </div>
+        <h3>Name: <%= user.name %></h3><br>
+        <h3>Username: <%= user.username %></h3><br>
+        <h3>Age: <%= user.age %></h3><br>
+        <h3>Email Id: <%= user.email %></h3><br>    
+        <a href="/edit/<%= user._id %>" class="edit">Edit your profile</a>
+    </div>
+</body>
+</html>

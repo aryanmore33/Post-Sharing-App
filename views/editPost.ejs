@@ -1,0 +1,56 @@
+<!-- do update to upload image as u learn multer -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_Page</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/yourPosts" class="profile">Your Posts</a>
+        <a href="" class="about">About</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    <h1>Edit your post
+    </h1><br>
+    <form method="post" action="/updatePost/<%= post._id %>" enctype="multipart/form-data">
+        <div class="postimg">
+            <div class="image-upload-container">
+                <input type="file" id="imageInput" name="dataFiles" accept="image/*">
+                <div id="previewContainer">
+                    <img id="imagePreview" src="" alt="Image Preview">
+                </div>
+            </div>
+        </div>
+        <div class="postdiv">
+            <textarea id="post_wrt" name="content" name="content"><%= post.content %></textarea>
+        </div>
+        <input class="shrPost" type="submit" value="Update" style="background-color: orange;"><br>
+    </form>
+    </div>
+
+
+
+    <script>
+        document.getElementById("imageInput").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("imagePreview").src = e.target.result;
+                    document.getElementById("previewContainer").style.display = "block";
+                    document.getElementById("imageInput").style.display = "none";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Retrieve the stored state or set default to true
+    </script>
+</body>
+
+</html>

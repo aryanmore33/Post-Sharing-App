@@ -1,0 +1,54 @@
+<!-- do update to upload image as u learn multer -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home_Page</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/profile" class="profile">View Profile</a>
+        <a href="" class="about">About</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    <h4>Your Posts...</h4>
+    <div class="posts">
+        <div>
+            <% user.posts.reverse().forEach(function(post) { %>
+                <div class="postContainer">
+                    <h5>@<%= user.username %>
+                    </h5>
+                    <div class="post">
+                        <div class="imageShared">
+                            <img src="data:image/png;base64,<%= post.dataFiles.toString('base64') %>" alt="Post shared">
+                        </div>
+                        <p>
+                            <%= post.content %>
+                        </p>
+                    </div>
+                    <small>
+                        <%= post.likes.length %> like
+                    </small>
+                    <div class="postinfo">
+                        <div class="btns">
+                            <a class="editPst" href="/editPost/<%= post._id %>">Edit</a>
+                            <a class="deletePst" href="/deletePost/<%= post._id %>">Delete</a>
+                        </div>
+                        <div id="time">
+                            <p>
+                                <%= post.date %>
+                            </p>
+                        </div>
+                    </div>
+                </div><br>
+                <% }); %>
+        </div><br>
+    </div>
+    <a href="/home" class="urPst" style="background-color: red; color: aliceblue;">Back to Home Page</a>
+</body>
+
+</html>
