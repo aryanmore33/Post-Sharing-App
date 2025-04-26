@@ -175,24 +175,28 @@ app.post('/create', async (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-  //check if already that account is present or not
   let { email, password } = req.body;
 
   let user = await userModel.findOne({ email });
   if (!user) {
-    res.status(500).send("Something went wrong")
+    return res.status(400).send("User not found"); // added return and better status code
   }
+
   bcrypt.compare(password, user.password, (err, result) => {
-    if (result) {
-      let token = jwt.sign({ email: email, userid: user._id }, "shhhh")
-      res.cookie("token", token);
-      res.status(200)
-      res.redirect("/home")
-    } else {
-      res.redirect("/login")
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Internal server error"); // handle bcrypt errors
     }
-  })
-})
+    if (result) {
+      let token = jwt.sign({ email: email, userid: user._id }, "shhhh");
+      res.cookie("token", token);
+      return res.redirect("/home"); // added return for clean flow
+    } else {
+      return res.redirect("/login");
+    }
+  });
+});
+
 
 app.get('/logout', async (req, res) => {
   res.cookie("token", "");
